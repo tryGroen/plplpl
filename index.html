@@ -1,0 +1,194 @@
+<html>
+<head>
+  <style>
+    @import url('https://fonts.googleapis.com/css?family=Roboto|Pacifico|Lobster');
+    @import url("https://fonts.googleapis.com/css2?family=Lato");
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Lato', sans-serif;
+      background: linear-gradient(to right, rgb(126, 186, 235), rgb(119, 199, 245));
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px;
+      backdrop-filter: blur(10px);
+    }
+
+    .logo {
+      font-family: 'sans-serif';
+      font-size: 30px;
+      color: rgb(255, 255, 255);
+      text-shadow: 2px 2px 4px rgb(112, 112, 112);
+    }
+
+    .nav {
+      display: flex;
+      list-style: none;
+    }
+
+    .nav li {
+      margin: 0 10px;
+    }
+
+    .nav a {
+      text-decoration: none;
+      font-size: 20px;
+      color: rgb(0, 0, 0);
+      text-shadow: 1px 1px 2px rgb(63, 63, 63);
+    }
+
+    .nav a:hover {
+      color: white;
+    }
+
+    .main {
+      position: relative;
+      height: 80vh;
+      background-image: url('https://cdn.discordapp.com/attachments/1197244089574371340/1200966572425089104/5A1FEACE-B922-44B2-BE9A-4732B830E01D.jpg?ex=65c81a47&is=65b5a547&hm=58e030f5d1cbf838251bc9ab2248a362183a76e125637ac42af056164f0f0a60&');
+      background-size: cover;
+      background-position: center;
+    }
+
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(255, 255, 255, 0.3);
+      backdrop-filter: blur(10px);
+    }
+
+    .text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+    }
+
+    .text h1 {
+      font-family: 'Lobster', cursive;
+      font-size: 50px;
+      color: rgb(255, 255, 255);
+      text-shadow: 2px 2px 4px white;
+    }
+
+    .text h2 {
+      font-size: 30px;
+      color: rgb(0, 0, 0);
+      text-shadow: 1px 1px 2px white;
+    }
+
+    .secondary {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      backdrop-filter: blur(10px);
+    }
+
+    .button {
+      display: block;
+      width: 200px;
+      height: 50px;
+      background-color: rgb(0, 0, 0);
+      border: none;
+      border-radius: 25px;
+      font-family: 'Pacifico', cursive;
+      font-size: 20px;
+      color: white;
+      cursor: pointer;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    .button:hover {
+      background-color: white;
+      color: lightblue;
+    }
+
+    footer {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      backdrop-filter: blur(10px);
+    }
+
+    .signature {
+      font-size: 15px;
+      color: lightblue;
+      text-shadow: 1px 1px 2px white;
+    }
+
+    .modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.8);
+      display: none;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .modal video {
+      width: 80%;
+      height: 80%;
+      border: 10px solid lightblue;
+      border-radius: 10px;
+    }
+
+    .close {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      width: 50px;
+      height: 50px;
+      font-size: 30px;
+      color: lightblue;
+      text-align: center;
+      line-height: 50px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div id="main" class="main">
+    <div class="overlay"></div>
+    <div class="text">
+      <h1>¡Eres todo para mí!</h1>
+      <h2>And someday your sky turns gray, I'll paint it looking at a river...</h2>
+    </div>
+  </div>
+  <div id="secondary" class="secondary">
+    <button class="button" onclick="openModal()">¡Veamos el video!</button>
+  </div>
+
+  <div id="modal" class="modal">
+    <video id="video" src="https://cdn.discordapp.com/attachments/1197244089574371340/1200962802366562414/copy_9E6270F7-5EF2-469B-9163-E57BE3BBA4C4.mov?ex=65c816c4&is=65b5a1c4&hm=287300eccc619209f7ea40b9df7f4cc7a7d0fb043ea138ae5136db51ce5f4bcb&" controls autoplay></video>
+    <div class="close" onclick="closeModal()">&times;</div>
+  </div>
+  <script>
+    function openModal() {
+      var modal = document.getElementById("modal");
+      var video = document.getElementById("video");
+      modal.style.display = "flex";
+      video.play();
+    }
+
+    function closeModal() {
+      var modal = document.getElementById("modal");
+      var video = document.getElementById("video");
+      modal.style.display = "none";
+      video.pause();
+    }
+  </script>
+</body>
+</html>
